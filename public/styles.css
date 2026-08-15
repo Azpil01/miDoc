@@ -285,3 +285,109 @@ body {
 .btn-agendar:hover {
   background-color: var(--primary-hover);
 }
+
+
+
+
+/* ==========================================
+   📱 ESTILOS RESPONSIVOS PARA CELULARES
+   ========================================== */
+
+@media (max-width: 768px) {
+  /* 1. Header en celular */
+  .header {
+    height: auto;
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .logo img {
+    height: 45px; /* Logo más discreto */
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap; /* Si son muchos links, caen a la siguiente línea */
+  }
+
+  .nav-links a {
+    font-size: 0.95rem;
+  }
+
+  .btn-login {
+    width: 100%; /* Botón de ancho completo en móvil */
+    max-width: 200px;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  /* 2. Sección Hero en celular */
+  .hero {
+    min-height: auto;
+    padding: 3rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem; /* Título más pequeño para que no se corte */
+    margin: 0.5rem 0;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* 3. Barra de búsqueda apilada verticalmente */
+  .search-bar {
+    width: 100%;
+    height: auto; /* Permite crecer a lo alto */
+    flex-direction: column; /* Inputs uno sobre otro */
+    gap: 0.8rem;
+    padding: 0.8rem;
+    border-radius: 12px;
+  }
+
+  .input-group {
+    width: 100%;
+    height: 3rem;
+    padding: 0 0.5rem;
+    border: 1px solid var(--border-color); /* Borde sutil para cada input */
+    border-radius: 8px;
+  }
+
+  /* Ocultamos la línea divisoria vertical en celulares */
+  .search-divider {
+    display: none;
+  }
+
+  .btn-search {
+    width: 100%;
+    height: 3rem;
+    padding: 0;
+  }
+
+  /* 4. Contenedor Principal de Doctores */
+  .main-container {
+    width: 95%;
+    margin: 1.5rem auto;
+  }
+
+  .main-container h2 {
+    font-size: 1.4rem;
+    text-align: center; /* Título centrado en móviles */
+    margin-bottom: 1.2rem;
+  }
+
+  /* Ajustamos la cuadrícula para mostrar 1 tarjeta por fila */
+  #doctores-container {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .doctor-card {
+    padding: 1.2rem;
+  }
+}
