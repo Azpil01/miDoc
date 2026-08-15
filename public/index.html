@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a Mi Doc</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="#">
+                <img src="images/gemini-svg.svg" alt="Logo de Mi Doc">
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="#">Especialidades</a>
+            <a href="#">Catálogo de Doctores</a>
+            <a href="#">Nosotros</a>
+            <a href="#">Preguntas Frecuentes</a>
+        </nav>
+        <button class="btn-login">Iniciar Sesión</button>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>MiDoc: Tu salud, tu decisión, <span>tu doctor</span></h1>
+            <p>Encuentra y reserva cita con los mejores especialistas de México</p>
+        </div>
+
+        <div class="search-bar">
+            <div class="input-group">
+                <span class="input-icon">📍</span>
+                <input type="text" placeholder="Buscar por especialidad">
+            </div>
+            <div class="search-divider"></div>
+            <div class="input-group">
+                <span class="input-icon">🩺</span>
+                <input type="text" placeholder="Buscar doctor">
+            </div>
+            <button class="btn-search">Buscar</button>
+        </div>
+
+    </section>
+
+    <main class="main-container">
+        <h2>Especialistas Disponibles</h2>
+        <div id="doctores-container"></div>
+    </main>
+
+
+    <footer>
+        <p>&copy; 2026 MiDoc. Todos los derechos reservados.</p>
+    </footer>
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>

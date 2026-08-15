@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Gradiente Verde Hoja -->
+    <linearGradient id="greenLeaf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8DC63F"/>
+      <stop offset="100%" stop-color="#418B26"/>
+    </linearGradient>
+
+    <!-- Gradiente Azul Cuerpo -->
+    <linearGradient id="blueBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00AEEF"/>
+      <stop offset="50%" stop-color="#0072CE"/>
+      <stop offset="100%" stop-color="#002F6C"/>
+    </linearGradient>
+
+    <!-- Gradiente Azul Curva Superior -->
+    <linearGradient id="blueSwoosh" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00AEEF"/>
+      <stop offset="100%" stop-color="#0072CE"/>
+    </linearGradient>
+
+    <!-- Gradiente Cabeza Verde -->
+    <linearGradient id="greenDot" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8DC63F"/>
+      <stop offset="100%" stop-color="#4CAF50"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Curva Superior Azul -->
+  <path d="M 115 135 C 150 75 255 70 395 160 C 355 95 245 85 115 135 Z" fill="url(#blueSwoosh)" />
+
+  <!-- Hoja Verde Izquierda -->
+  <path d="M 117 160 C 205 210 230 310 215 355 C 132 300 92 210 117 160 Z" fill="url(#greenLeaf)" />
+  <path d="M 117 160 C 170 215 200 270 215 355" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" />
+
+  <!-- Figura Humana / Corazón Azul -->
+  <path d="M 230 150 C 285 90 400 115 390 220 C 375 295 285 365 230 375 C 250 310 260 210 230 150 Z" fill="url(#blueBody)" />
+
+  <!-- Cabeza Verde -->
+  <circle cx="320" cy="120" r="28" fill="url(#greenDot)" />
+
+  <!-- Texto -->
+  <text x="250" y="430" font-family="'Times New Roman', Georgia, serif" font-size="38" font-weight="bold" fill="#111111" text-anchor="middle" letter-spacing="2">LOREM IPSUM</text>
+  <text x="250" y="465" font-family="'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#333333" text-anchor="middle" letter-spacing="6">DOLOR SIT AMET</text>
+</svg>
