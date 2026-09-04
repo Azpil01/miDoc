@@ -44,7 +44,7 @@ app.get("/api/doctores", async (req, res) => {
 
 app.get("/api/doctores/buscar", async (req, res) => {
   const { especialidad = "", ubicacion = "", pagina = 1 } = req.query;
-  const limite = 3; //*Cantidad de doctores por página
+  const limite = 10; //*Cantidad de doctores por página
   const offset = (Number(pagina) - 1) * limite; //*La cantidad de registros a saltarse antes de devolver datos, ejempl, si estas en la pagina 1, registros del 0 al 10
   //*si estas en la pagina 2, quieres saltarte los primero 10 porque ya pasaron en la página 1
   //+Con esto cinvertimos a number lo que se haya introducido en pagina
