@@ -22,10 +22,8 @@
 
   /* --- ELEVACIÓN (SOMBRAS) --- */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-  --shadow-card:
-    0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  --shadow-hover:
-    0 10px 15px -3px rgba(13, 148, 136, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-hover: 0 10px 15px -3px rgba(13, 148, 136, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -42,6 +40,7 @@ body {
   align-items: center;
   flex-direction: column;
   background-color: var(--bg-main);
+  font-family: var(--font-main);
 }
 
 /** Estilos del Header*/
@@ -69,29 +68,43 @@ body {
   gap: 2rem;
 }
 .nav-links a {
-  font-size: 1.5rem;
+  font-size: 1.1rem; /* Ajustado para mejor proporción visual */
   color: white;
   text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.nav-links a:hover {
+  opacity: 0.8;
 }
 
 .btn-login {
   font-size: 1rem;
-  padding: 0.6rem 1.4rem; /* El botón se ajusta al texto dinámicamente */
+  padding: 0.6rem 1.4rem;
   border-radius: 8px;
   border: none;
+  background-color: white;
+  color: var(--primary-color);
+  font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-login:hover {
+  background-color: #f1f5f9;
 }
 
 /**Hero*/
 
 .hero {
   width: 100%;
-  height: 55vh;
+  min-height: 55vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 2rem 1rem;
 
   background-image:
     linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)),
@@ -106,6 +119,7 @@ body {
   color: white;
   font-size: 2.5rem;
   margin: 1rem;
+  max-width: 800px;
 }
 
 .hero h1 span {
@@ -123,7 +137,6 @@ body {
 .search-bar {
   width: 90%;
   max-width: 750px;
-  height: 4rem;
   background-color: #ffffff;
   display: flex;
   flex-direction: row;
@@ -139,32 +152,27 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
-}
-
-.search-bar .input-group {
-  display: flex;
-  align-items: center;
-  flex: 1;
+  gap: 0.5rem;
 }
 
 .input-group {
   flex: 1;
-  height: 100%;
+  height: 3rem;
   display: flex;
   align-items: center;
-  gap: .6rem;
+  gap: 0.6rem;
   padding: 0 0.8rem;
 }
 
 .input-icon {
-    font-size: 1.5rem;
-    user-select: none;
+  font-size: 1.3rem;
+  user-select: none;
 }
 
 .input-group input {
   width: 100%;
   height: 100%;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: var(--text-dark);
   border: none;
   outline: none;
@@ -176,22 +184,22 @@ body {
 }
 
 .search-divider {
-    width: 2px;
-    height: 55%;
-    background-color: var(--border-color);
+  width: 2px;
+  height: 55%;
+  background-color: var(--border-color);
 }
 
 .btn-search {
-  height: 2.5rem;
+  height: 3rem;
   background-color: var(--primary-color);
   color: white;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  padding: 0rem 1.8rem; /* El botón se ajusta al texto dinámicamente */
+  padding: 0 1.8rem;
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s eas;
+  transition: background-color 0.2s ease;
 }
 
 .btn-search:hover {
@@ -232,9 +240,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   text-align: center;
-  box-shadow: var(--shadow-sm); /* Sombra elegante */
+  box-shadow: var(--shadow-sm);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -243,14 +251,13 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
-
 .avatar-sm {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%; /* Hace la foto 100% circular */
-  object-fit: cover;  /* Evita que la foto se deforme */
-  border: 3px solid #ffffff; /* Borde blanco grueso de separación */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12); /* Sombreado de la foto */
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
   margin-bottom: 1rem;
 }
 
@@ -259,7 +266,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: .4rem;
+  gap: 0.5rem;
 }
 
 .badge {
@@ -299,8 +306,15 @@ body {
   background-color: var(--primary-hover);
 }
 
-
-
+footer {
+  width: 100%;
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
+}
 
 /* ==========================================
    📱 ESTILOS RESPONSIVOS PARA CELULARES
@@ -316,14 +330,14 @@ body {
   }
 
   .logo img {
-    height: 45px; /* Logo más discreto */
+    height: 45px;
   }
 
   .nav-links {
     width: 100%;
     justify-content: center;
     gap: 1rem;
-    flex-wrap: wrap; /* Si son muchos links, caen a la siguiente línea */
+    flex-wrap: wrap;
   }
 
   .nav-links a {
@@ -331,7 +345,7 @@ body {
   }
 
   .btn-login {
-    width: 100%; /* Botón de ancho completo en móvil */
+    width: 100%;
     max-width: 200px;
     font-size: 0.9rem;
     padding: 0.5rem;
@@ -340,11 +354,11 @@ body {
   /* 2. Sección Hero en celular */
   .hero {
     min-height: auto;
-    padding: 3rem 1rem;
+    padding: 2.5rem 1rem;
   }
 
   .hero h1 {
-    font-size: 1.6rem; /* Título más pequeño para que no se corte */
+    font-size: 1.6rem;
     margin: 0.5rem 0;
   }
 
@@ -353,27 +367,32 @@ body {
     margin-bottom: 1.5rem;
   }
 
-  /* 3. Barra de búsqueda apilada verticalmente */
+  /* 3. Barra de búsqueda apilada verticalmente de forma fluida */
   .search-bar {
-    width: 100%;
-    height: auto; /* Permite crecer a lo alto */
-    flex-direction: column; /* Inputs uno sobre otro */
-    gap: 0.8rem;
+    width: 95%;
+    flex-direction: column;
+    gap: 0.6rem;
     padding: 0.8rem;
     border-radius: 12px;
+  }
+
+  #search-form {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.6rem;
   }
 
   .input-group {
     width: 100%;
     height: 3rem;
     padding: 0 0.5rem;
-    border: 1px solid var(--border-color); /* Borde sutil para cada input */
+    border: 1px solid var(--border-color);
     border-radius: 8px;
+    background-color: #fafafa;
   }
 
-  /* Ocultamos la línea divisoria vertical en celulares */
   .search-divider {
-    display: none;
+    display: none; /* Ocultamos la línea divisoria vertical en móviles */
   }
 
   .btn-search {
@@ -382,7 +401,7 @@ body {
     padding: 0;
   }
 
-  /* 4. Contenedor Principal de Doctores */
+  /* 4. Contenedor Principal y Tarjetas */
   .main-container {
     width: 95%;
     margin: 1.5rem auto;
@@ -390,13 +409,12 @@ body {
 
   .main-container h2 {
     font-size: 1.4rem;
-    text-align: center; /* Título centrado en móviles */
+    text-align: center;
     margin-bottom: 1.2rem;
   }
 
-  /* Ajustamos la cuadrícula para mostrar 1 tarjeta por fila */
   #doctores-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Una sola columna para celulares */
     gap: 1.2rem;
   }
 
