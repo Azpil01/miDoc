@@ -1,9 +1,9 @@
 :root {
-  /* --- COLORES PRINCIPALES --- */
-  --primary-color: #0d9488; /* Teal/Verde principal (para botones y acentos) */
-  --primary-hover: #0f766e; /* Teal más oscuro (para el hover de botones) */
-  --accent-soft: #ccfbf1; /* Verde agua muy suave (para badges y fondos ligeros) */
-  --accent-text: #0f766e; /* Texto sobre fondo accent-soft */
+  /* --- NUEVA PALETA DE COLORES (AZULES Y CELESTES) --- */
+  --primary-color: #3674B5; /* Azul principal (para botones, header, etc.) */
+  --primary-hover: #578FCA; /* Azul más claro/dinámico (para el hover) */
+  --accent-soft: #D1F8EF;   /* Tono pastel claro (para badges y fondos ligeros) */
+  --accent-text: #3674B5;   /* Texto sobre fondo accent-soft */
 
   /* --- FONDOS Y SUPERFICIES --- */
   --bg-main: #f8fafc; /* Gris/Azul ultra claro para el fondo de la página */
@@ -23,7 +23,8 @@
   /* --- ELEVACIÓN (SOMBRAS) --- */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
   --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  --shadow-hover: 0 10px 15px -3px rgba(13, 148, 136, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 10px 15px -3px rgba(54, 116, 181, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
 }
 
 * {
