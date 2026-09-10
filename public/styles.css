@@ -3,6 +3,7 @@
   --primary-color: #3674B5; /* Azul principal (para botones, header, etc.) */
   --primary-hover: #578FCA; /* Azul más claro/dinámico (para el hover) */
   --accent-soft: #D1F8EF;   /* Tono pastel claro (para badges y fondos ligeros) */
+    --accent-soft-2: #93cdfd;   /* Tono pastel claro (para badges y fondos ligeros) */
   --accent-text: #3674B5;   /* Texto sobre fondo accent-soft */
 
   /* --- FONDOS Y SUPERFICIES --- */
@@ -124,7 +125,7 @@ body {
 }
 
 .hero h1 span {
-  color: var(--accent-soft);
+  color: var(--accent-soft-2);
 }
 
 .hero p {

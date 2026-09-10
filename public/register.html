@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenid@</title>
+    <title>Registro a tu Agenda Clínica</title>
     <link rel="stylesheet" href="styles-registro.css?=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alata&family=Kedebideri:wght@400;500;600;700;800;900&family=Kumbh+Sans:wght,YOPQ@100..900,300&family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alata&family=Kedebideri:wght@400;500;600;700;800;900&family=Kumbh+Sans:wght,YOPQ@100..900,300&family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <div class="form-container">
         <div class="left-panel-registration-form">
@@ -16,11 +20,11 @@
                 <img src="images/iconoPerfilFondoAzul.png" alt="" class="icono-perfil">
             </div>
             <div class="mensaje-bienvenida">
-                <h3>Bienvenid@ a Mi Doc</h3>
+                <h3>Bienvenid@ a Agenda Clínica</h3>
                 <p>Estas completando el formulario de registro
-                    para que puedas acceder a una infinidad 
+                    para que puedas acceder a una infinidad
                     de doctores especialistas en diversas ramas
-                    de la medicina. 
+                    de la medicina.
                     Así como a ti, a nosotros también nos preocupa
                     la privacidad de la información y el acceso
                     a los datos. Aquí puedes consultar los detalles
@@ -33,18 +37,53 @@
         </div>
         <div class="right-panel-registration-form">
             <div class="title">
-                <h2>Registro</h2>
+                <h2>REGISTRO</h2>
             </div>
             <div class="registration-body">
-                <label for="nombre">Nombre</label>
-                <input type="text" name="nombre" id="">
-                <label for="nombre">Apellido Paterno</label>
-                <input type="text" name="apellido_pat" id="">
-                <label for="nombre">Apellido Materno</label>
-                <input type="text" name="apellido_mat" id="">
+                <div class="top-row">
+                    <input type="text" name="nombre" class="i_nombre" placeholder="Miranda">
+                    <label for="nombre" class="l_nombre">Nombre </label>
+                </div>
+
+                <div class="second-row">
+                    <div class="first-item-second-row">
+                        <input type="text" name="apellido_pat" id="" placeholder="Loera">
+                        <label for="nombre">Apellido Paterno </label>
+                    </div>
+
+                    <div class="second-item-second-row">
+                        <input type="text" name="apellido_mat" id="" placeholder="Camacho">
+                        <label for="nombre">Apellido Materno </label>
+                    </div>        
+                </div>
+
+                <div class="third-row">
+                    <div class="first-item-third-row">
+                     <input type="text" name="cel" id="" placeholder="55-2790-3435">
+                    <label for="nombre">Celular </label> 
+                    </div>
+                    <div class="second-item-third-row">
+                        <input type="text" name="correo_e" id="email_input" placeholder="mircam@gmail.com">
+                        <label for="nombre">Correo Electrónico </label>
+                    </div>
+                   
+                    
+                </div>
+
+
+
+                <div class="final-row">
+                    
+                    
+
+                    <label for="nombre">Contraseña </label>
+                    <input type="text" name="contraseña" id="" placeholder="******">
+                </div>
+
             </div>
         </div>
     </div>
-    
+
 </body>
+
 </html>

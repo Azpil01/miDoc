@@ -1,3 +1,37 @@
+:root {
+  /* --- NUEVA PALETA DE COLORES (AZULES Y CELESTES) --- */
+  --primary-color: #3674b5; /* Azul principal (para botones, header, etc.) */
+  --primary-hover: #578fca; /* Azul más claro/dinámico (para el hover) */
+  --accent-soft: #d1f8ef; /* Tono pastel claro (para badges y fondos ligeros) */
+  --accent-text: #3674b5; /* Texto sobre fondo accent-soft */
+
+  /* --- FONDOS Y SUPERFICIES --- */
+  --bg-main: #f8fafc; /* Gris/Azul ultra claro para el fondo de la página */
+  --bg-card: #ffffff; /* Blanco puro para tarjetas y headers */
+
+  /* --- TIPOGRAFÍA Y TEXTOS --- */
+  --font-main: "Poppins", sans-serif;
+  --font-main2: "Alata", sans-serif;
+  --font-main3: "Quicksand", sans-serif;
+  --font-p: "Kedebideri", sans-serif;
+  --text-dark: #1e293b; /* Gris muy oscuro para títulos principales */
+  --text-muted: #64748b; /* Gris medio para subtítulos y textos secundarios */
+
+  /* --- BORDES Y SOMBRAS --- */
+  --border-color: #e2e8f0; /* Líneas de división sutiles */
+  --radius-sm: 8px; /* Redondeado para botones e inputs */
+  --radius-md: 12px; /* Redondeado para tarjetas */
+  --radius-full: 9999px; /* Redondeado tipo píldora (para badges) */
+
+  /* --- ELEVACIÓN (SOMBRAS) --- */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-card:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-hover:
+    0 10px 15px -3px rgba(54, 116, 181, 0.15),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +46,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #578fca;
+  background-color: var(--bg-main);
 }
 
 .form-container {
@@ -21,6 +55,7 @@ body {
   height: 80vh;
   border-radius: 10px;
   display: flex;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .left-panel-registration-form {
@@ -33,51 +68,44 @@ body {
 }
 
 .icono {
-    width: 100%;
-    height: 20%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
 }
 
 .icono-perfil {
-   width: 160px;
+  width: 160px;
   height: 160px;
   object-fit: cover;
-  
-
- 
 }
 
 .mensaje-bienvenida {
-    width: 100%;
-    height: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0% 5%;
+  width: 100%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0% 5%;
 }
 
-
-
 .mensaje-bienvenida h3 {
-    text-align: justify;
-    margin: .5rem;
-    font-family: "Alata";
-    font-weight: 200;
+  text-align: justify;
+  margin: 0.5rem;
+  font-family: "Alata";
+  font-weight: 200;
 }
 
 .mensaje-bienvenida p {
-    text-align: justify;
-    line-height: 1.5rem;
-    margin-top: .5rem;  
-    font-family: "Kedebideri";
-    
+  text-align: justify;
+  line-height: 1.5rem;
+  margin-top: 0.5rem;
+  font-family: "Kedebideri";
 }
 
 .fondo-form {
@@ -85,21 +113,118 @@ body {
   height: 40%;
   height: auto;
   object-fit: cover;
- 
+
   margin-bottom: 1rem;
 }
 
 .esquina-form {
-    height: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
 
 .right-panel-registration-form {
   width: 60%;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+
+  padding: 3rem;
 }
 
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20%;
+}
+
+.title h2 {
+  font-family: "Quicksand";
+  font-weight: 100;
+  font-size: 3rem;
+  padding: 1.5rem 0;
+  text-align: center;
+  color: var(--accent-text);
+}
+
+.registration-body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 60%;
+  align-content: space-around;
+  justify-content: space-around;
+}
+
+.top-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-row label {
+  width: 200px;
+  text-align: center;
+}
+
+.top-row input {
+  text-align: center;
+  width: 200px;
+}
+
+.registration-body label {
+  font-family: var(--font-main2);
+  font-size: 1.5rem;
+  font-weight: lighter;
+}
+
+.registration-body input {
+  border: none;
+  border-bottom: 2px solid var(--border-color);
+  font-family: var(--font-p);
+  font-size: 1.3rem;
+  background: transparent;
+  outline: none;
+  padding: 0 0rem;
+}
+
+.second-row,
+.third-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 3rem;
+}
+
+.first-item-second-row {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.first-item-second-row input,
+.first-item-second-row label,
+.second-item-second-row input,
+.second-item-second-row label {
+  text-align: center;
+}
+
+.first-item-third-row,
+.second-item-third-row,
+.second-item-second-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.first-item-third-row input,
+.first-item-third-row label,
+.second-item-third-row input,
+.second-item-third-row label {
+  text-align: center;
+}
