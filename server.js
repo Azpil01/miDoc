@@ -116,9 +116,10 @@ app.post("/api/v1/auth/register", async (req, res) => {
     let queryValues = [nombre, apellidoPat, apellidoMat, celular, correo, hashedPassword];
 
     const [result] = await pool.query(queryText, queryValues)
-    console.log(result)
-
     console.log("Usuario registrado con éxito")
+    console.log("Number of affected rows: ", result.affectedRows)
+    console.log(`ID: ${result.insertId} assigned to user ${correo}` )
+    
 
     return res.status(201).json({
       mensaje: "Usuario registrado exitosamente",
