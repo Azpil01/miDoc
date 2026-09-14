@@ -274,3 +274,65 @@ body {
 .reg-btn:hover {
   background-color: var(--primary-hover);
 }
+
+
+
+@media screen and (max-width: 850px) {
+  body {
+    padding: 1rem;
+  }
+
+  /* Cambiamos el contenedor principal de filas a columna */
+  .form-container {
+    flex-direction: column;
+    width: 100%;
+    min-height: auto;
+  }
+
+  /* El panel izquierdo pasa arriba y ocupa todo el ancho */
+  .left-panel-registration-form {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  /* Ocultamos elementos decorativos grandes en pantallas muy chicas si estorban, o los ajustamos */
+  .fondo-form {
+    display: none; 
+  }
+
+  .icono-perfil {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* El panel derecho ocupa todo el ancho */
+  .right-panel-registration-form {
+    width: 100%;
+    padding: 1.5rem 1rem;
+  }
+
+  /* Convertimos las filas dobles (Apellidos, Contraseñas, etc.) en columnas para celulares */
+  .second-row,
+  .third-row,
+  .final-row {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .first-item-second-row,
+  .second-item-second-row,
+  .first-item-third-row,
+  .second-item-third-row,
+  .first-item-final-row,
+  .second-item-final-row {
+    width: 100%;
+  }
+
+  .second-item-final-row label {
+    white-space: normal; /* Permite que el texto baje si es necesario en pantallas chicas */
+  }
+
+  .reg-btn {
+    width: 100%; /* Botón de ancho completo en celulares para mayor comodidad táctil */
+  }
+}
