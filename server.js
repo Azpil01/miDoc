@@ -1,10 +1,14 @@
 import express from "express";
 import dotenv from "dotenv";
 import mysql from "mysql2/promise";
+import bcrypt from "bcrypt";
+
 
 dotenv.config();
 
 const app = express();
+
+
 
 // const doctores = [
 //     {id: 0, nombre: "Ana Hernández", foto:"images/dra1sinFondo.png", especialidad: "Ginecología", ubi: "Lindavista", calif: "⭐⭐⭐⭐⭐"},
@@ -12,6 +16,8 @@ const app = express();
 //     {id: 3, nombre: "María Silva", foto:"images/dra2sinFondo.png", especialidad: "Cardiología", ubi: "Escandón", calif: "⭐⭐⭐⭐⭐"}, ]
 
 app.use(express.static("public"));
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 //+Para inicializar nuestra base de datos//
 
@@ -92,6 +98,31 @@ app.get("/api/doctores/buscar", async (req, res) => {
     res.status(500).json({ error: "Error al realizar la búsqueda" });
   }
 });
+
+//*********Endpoint para registro de usuarios ***********/
+
+app.post("/api/v1/auth/register", async (req, res) => {
+  try{
+    const { nombre, apellidoPat, apellidoMat, celular, correo, contraseña, contraseñaConfirmacion} = req.body;
+    if (contraseña !== contraseñaConfirmacion) {
+      return res.status(400).json({error: "Las contraseñas no coinciden"});
+    }
+
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(contraseña, saltRounds);
+
+    console.log("Usuario registrado con éxito")
+
+    return res.status(201).json({
+      mensaje: "Usuario registrado exitosamente",
+      usuario: {correo}
+    })
+
+  } catch(error) {
+    console.error("Error en el servidor al registrar: ", error);
+    return res.status(500).json({error: "Error interno en el servidor"})
+  }
+})
 
 const PORT = Number(process.env.PORT) || 3000;
 

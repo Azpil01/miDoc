@@ -52,7 +52,7 @@ body {
 .form-container {
   background-color: azure;
   width: 50vw;
-  height: 80vh;
+  min-height: 80vh;
   border-radius: 10px;
   display: flex;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
@@ -130,7 +130,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3rem;
+  padding: 2.5rem 3rem;
 }
 
 .title {
@@ -151,13 +151,20 @@ body {
   color: var(--accent-text);
 }
 
+.form-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
 .registration-body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 60%;
-  align-content: space-around;
-  justify-content: space-around;
+  height: auto;
+  gap: 1.5rem;
 }
 
 .top-row {
@@ -201,44 +208,38 @@ body {
   justify-content: space-around;
   align-items: flex-start;
   gap: 3rem;
-  margin-top: 3.2rem;
+  margin-top: 2rem;
+ 
 }
 
-.first-item-second-row {
+.first-item-second-row,
+.second-item-second-row,
+.first-item-third-row,
+.second-item-third-row,
+.first-item-final-row,
+.second-item-final-row  {
   width: 50%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .first-item-second-row input,
 .first-item-second-row label,
 .second-item-second-row input,
-.second-item-second-row label {
-  text-align: center;
-}
-
-.first-item-third-row,
-.second-item-third-row,
-.second-item-second-row,
-.first-item-final-row,
-.second-item-final-row {
-  display: flex;
-  flex-direction: column;
-}
-
+.second-item-second-row label,
 .first-item-third-row input,
 .first-item-third-row label,
 .second-item-third-row input,
-.second-item-third-row label {
-  text-align: center;
-}
-
-
+.second-item-third-row label,
 .first-item-final-row input,
 .first-item-final-row label,
 .second-item-final-row input {
   text-align: center;
+  width: 100%;
 }
+
+
 
 .second-item-final-row label {
   white-space: nowrap; /* Evita que el texto baje a la segunda línea */
@@ -246,7 +247,7 @@ body {
 }
 
 .registration-btn {
-  margin-top: 2rem;
+  margin-top: 4.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -267,7 +268,7 @@ body {
   justify-content: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 2rem;
+  margin-top: 0;
 }
 
 .reg-btn:hover {
