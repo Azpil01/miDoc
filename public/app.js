@@ -111,6 +111,8 @@ document.addEventListener("DOMContentLoaded", () => {
           },
           body: JSON.stringify(datosUsuarios),
         });
+        
+         const result = await res.json();
 
         if (!res.ok) {
           throw new Error(
@@ -118,8 +120,12 @@ document.addEventListener("DOMContentLoaded", () => {
           );
         }
 
-        const result = await res.json();
+       
         console.log("Respuesta exitosa de la API: ", result);
+
+        registerForm.reset();
+        alert("¡Registro exitoso! Bienvenid@")
+
       } catch (error) {
         console.error("Error en el registro: ", error);
       }

@@ -102,6 +102,7 @@ app.get("/api/doctores/buscar", async (req, res) => {
 //*********Endpoint para registro de usuarios ***********/
 
 app.post("/api/v1/auth/register", async (req, res) => {
+  
   try{
     const { nombre, apellidoPat, apellidoMat, celular, correo, contraseña, contraseñaConfirmacion} = req.body;
     if (contraseña !== contraseñaConfirmacion) {
@@ -110,6 +111,12 @@ app.post("/api/v1/auth/register", async (req, res) => {
 
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(contraseña, saltRounds);
+
+    const queryText = "INSERT INTO pacientes (nombre, apellido_pat, apellido_mat, email, telefono, password_hash) VALUES (?, ?, ?, ?, ?, ?)";
+    let queryValues = [nombre, apellidoPat, apellidoMat, celular, correo, hashedPassword];
+
+    const [result] = await pool.query(queryText, queryValues)
+    console.log(result)
 
     console.log("Usuario registrado con éxito")
 
