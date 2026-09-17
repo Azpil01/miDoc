@@ -42,28 +42,28 @@
             <form id="register-form" method="" action="" class="form-wrapper">
             <div class="registration-body">
                 <div class="top-row">
-                    <input type="text" name="nombre" class="i_nombre" placeholder="Miranda">
+                    <input type="text" name="nombre" class="i_nombre" placeholder="" required>
                     <label for="nombre" class="l_nombre">Nombre </label>
                 </div>
 
                 <div class="second-row">
                     <div class="first-item-second-row">
-                        <input type="text" name="apellido_pat" id="" placeholder="Loera">
+                        <input type="text" name="apellido_pat" id="" placeholder="" required>
                         <label for="apellido_pat">Apellido Paterno </label>
                     </div>
                     <div class="second-item-second-row">
-                        <input type="text" name="apellido_mat" id="" placeholder="Camacho">
+                        <input type="text" name="apellido_mat" id="" placeholder="">
                         <label for="apellid_mat">Apellido Materno </label>
                     </div>
                 </div>
 
                 <div class="third-row">
                     <div class="first-item-third-row">
-                        <input type="text" name="cel" id="" placeholder="55-2790-3435">
+                        <input type="text" name="cel" id="" placeholder="">
                         <label for="cel">Celular </label>
                     </div>
                     <div class="second-item-third-row">
-                        <input type="text" name="correo_e" id="email_input" placeholder="mircam@gmail.com">
+                        <input type="email" name="correo_e" id="email_input" placeholder="" required>
                         <label for="corre_e">Correo Electrónico </label>
                     </div>
                 </div>
@@ -72,12 +72,12 @@
 
                 <div class="final-row">
                     <div class="first-item-final-row">
-                        <input type="text" name="contraseña" id="" placeholder="******">
+                        <input type="password" name="contraseña" id="" placeholder="" required>
                         <label for="contreaseña">Contraseña </label>
 
                     </div>
                     <div class="second-item-final-row">
-                        <input type="text" name="contraseña_confirmacion" id="" placeholder="******">
+                        <input type="password" name="contraseña_confirmacion" id="" placeholder="" required>
                         <label for="contraseña_confirmacion">Confirmar Contraseña </label>
                     </div>
                 </div>
@@ -93,7 +93,10 @@
             </form>
         </div>
     </div>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="app.js?v=1.2"></script>
+  
+    
 </body>
 
 </html>

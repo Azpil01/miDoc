@@ -104,6 +104,16 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       try {
+        if (datosUsuarios.contraseña !== datosUsuarios.contraseñaConfirmacion) {
+          Swal.fire({
+            icon: "error",
+            title: "¡Atención!",
+            text: "Las contraseñas no coinciden. Favor de verificar",
+            confirmButtonColor: "#3085d6"
+          })
+          console.log("Las contraseñas no coinciden")
+          return
+        }
         const res = await fetch("/api/v1/auth/register", {
           method: "POST",
           headers: {
