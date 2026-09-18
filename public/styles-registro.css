@@ -275,17 +275,28 @@ body {
   background-color: var(--primary-hover);
 }
 .swal2-popup {
-  font-family: 'Quicksand', sans-serif !important;
+  font-family: var(--font-p), sans-serif !important;
   border-radius: 12px !important;
 }
 
 .swal2-title {
-  color: #1a365d !important;
+  /* color: #1a365d !important; */
+  color: var(--accent-text);
+  font-size: 60px !important;
+  font-family: var(--font-main3);
 }
 
 .swal2-html-container {
   color: #4a5568 !important;
 }
+
+.swal2-styled.swal2-confirm {
+  width: 8rem;
+}
+/* 
+.some-test {
+  
+} */
 
 
 @media screen and (max-width: 850px) {

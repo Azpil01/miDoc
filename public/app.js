@@ -109,7 +109,10 @@ document.addEventListener("DOMContentLoaded", () => {
             icon: "error",
             title: "¡Atención!",
             text: "Las contraseñas no coinciden. Favor de verificar",
-            confirmButtonColor: "#3085d6"
+            confirmButtonColor: "#3085d6",
+            customClass: {
+              title: "some-test"
+            }
           })
           console.log("Las contraseñas no coinciden")
           return
