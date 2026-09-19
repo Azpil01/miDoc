@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
             text: "Las contraseñas no coinciden. Favor de verificar",
             confirmButtonColor: "#3085d6",
             customClass: {
-              title: "some-test"
+              // title: "some-test" Se puede usar esta clase personalizada 
             }
           })
           console.log("Las contraseñas no coinciden")
