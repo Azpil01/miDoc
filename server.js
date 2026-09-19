@@ -112,7 +112,7 @@ app.post("/api/v1/auth/register", async (req, res) => {
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(contraseña, saltRounds);
 
-    const queryText = "INSERT INTO pacientes (nombre, apellido_pat, apellido_mat, email, telefono, password_hash) VALUES (?, ?, ?, ?, ?, ?)";
+    const queryText = "INSERT INTO pacientes (nombre, apellido_pat, apellido_mat, telefono, email, password_hash) VALUES (?, ?, ?, ?, ?, ?)";
     let queryValues = [nombre, apellidoPat, apellidoMat, celular, correo, hashedPassword];
 
     const [result] = await pool.query(queryText, queryValues)
@@ -124,7 +124,7 @@ app.post("/api/v1/auth/register", async (req, res) => {
     return res.status(201).json({
       mensaje: "Usuario registrado exitosamente",
       usuario: {correo}
-    })
+    })  
 
   } catch(error) {
     console.error("Error en el servidor al registrar: ", error);

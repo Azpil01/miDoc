@@ -1,14 +1,13 @@
 async function obtenerDoctores() {
   try {
-      const contenedor = document.getElementById("doctores-container");
-      if (!contenedor) return;
-
+    const contenedor = document.getElementById("doctores-container");
+    if (!contenedor) return;
 
     const res = await fetch("/api/doctores");
     if (!res.ok) {
       throw new Error("Hubo un problema al conectar con la API");
     }
-    const datos = await res.json();  
+    const datos = await res.json();
     contenedor.innerHTML = "";
 
     datos.forEach((doc) => {
@@ -34,8 +33,8 @@ obtenerDoctores();
 
 document.addEventListener("DOMContentLoaded", () => {
   const searchForm = document.getElementById("search-form"); //+Tomamos posesion del elemento por su id
-  
-  if(!searchForm) return;
+
+  if (!searchForm) return;
   const inputEspecialidad = document.getElementById("input-especialidad");
   const inputUbicacion = document.getElementById("input-ubicacion");
   const doctoresContainer = document.getElementById("doctores-container");
@@ -102,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
           'input[name="contraseña_confirmacion"]',
         ).value,
       };
-
+      console.log("Datos a enviar: ", datosUsuarios)
       try {
         if (datosUsuarios.contraseña !== datosUsuarios.contraseñaConfirmacion) {
           Swal.fire({
@@ -111,11 +110,11 @@ document.addEventListener("DOMContentLoaded", () => {
             text: "Las contraseñas no coinciden. Favor de verificar",
             confirmButtonColor: "#3085d6",
             customClass: {
-              // title: "some-test" Se puede usar esta clase personalizada 
-            }
-          })
-          console.log("Las contraseñas no coinciden")
-          return
+              // title: "some-test" Se puede usar esta clase personalizada
+            },
+          });
+          console.log("Las contraseñas no coinciden");
+          return;
         }
         const res = await fetch("/api/v1/auth/register", {
           method: "POST",
@@ -124,21 +123,51 @@ document.addEventListener("DOMContentLoaded", () => {
           },
           body: JSON.stringify(datosUsuarios),
         });
-        
-         const result = await res.json();
 
+        if (res.status === 500) {
+          Swal.fire({
+            icon: "warning",
+            title: "Correo ya registrado",
+            text: "Este correo ya esta asociado a otra cuenta. Por favor, intenta con otro correo o inicia sesión",
+            confirmButtonColor: "#3085d6",
+            returnFocus: false,
+            customClass: {
+              // title: "some-test" Se puede usar esta clase personalizada
+            },
+          }).then(() => {
+            const inputCorreo = document.querySelector(
+              'input[name="correo_e"]',
+            );
+            inputCorreo.focus();
+            inputCorreo.select();
+            console.log("Nuevos datos: ", datosUsuarios)
+          });
+
+          return;
+        }
         if (!res.ok) {
           throw new Error(
             "Hubo un problema al registrar el usuario en el servidor",
           );
         }
 
-       
+        const result = await res.json();
         console.log("Respuesta exitosa de la API: ", result);
 
         registerForm.reset();
-        alert("¡Registro exitoso! Bienvenid@")
 
+        Swal.fire({
+          icon: "success",
+          title: "¡Bienvenido!",
+          text: "Ya eres parte de Agenda Clínica",
+          confirmButtonColor: "#3085d6",
+          customClass: {
+            // title: "some-test" Se puede usar esta clase personalizada
+          },
+        });
+
+        registerForm.reset();
+        // alert("¡Registro exitoso! Bienvenid@")
       } catch (error) {
         console.error("Error en el registro: ", error);
       }
