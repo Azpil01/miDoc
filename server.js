@@ -132,6 +132,42 @@ app.post("/api/v1/auth/register", async (req, res) => {
   }
 })
 
+
+//*********Endpoint para registro de doctores ***********/
+
+app.post("/api/v1/auth/register-doctor", async (req, res) => {
+  
+  try{
+    const { nombre, apellidoPat, apellidoMat, cedula, celular, correo, especialidad, ubicacionPrincipal, contraseña, contraseñaConfirmacion} = req.body;
+    if (contraseña !== contraseñaConfirmacion) {
+      return res.status(400).json({error: "Las contraseñas no coinciden"});
+    }
+
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(contraseña, saltRounds);
+
+    const queryText = "INSERT INTO doctores (nombre, apellido_pat, apellido_mat, ced_prof, celular, email, especialidad, ubicacion_principal, password_hash) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    let queryValues = [nombre, apellidoPat, apellidoMat, cedula,  celular, correo, especialidad, ubicacionPrincipal, hashedPassword];
+
+    const [result] = await pool.query(queryText, queryValues)
+    console.log("Profesionista registrado con éxito")
+    console.log("Number of affected rows: ", result.affectedRows)
+    console.log(`ID: ${result.insertId} assigned to user ${correo}` )
+    
+
+    return res.status(201).json({
+      mensaje: "Profesionista registrado exitosamente",
+      usuario: {correo}
+    })  
+
+  } catch(error) {
+    console.error("Error en el servidor al registrar: ", error);
+    return res.status(500).json({error: "Error interno en el servidor"})
+  }
+})
+
+
+
 const PORT = Number(process.env.PORT) || 3000;
 
 app.listen(PORT, () => {

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro a tu Agenda Clínica</title>
+    <link rel="stylesheet" href="styles-registro-prof.css?=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alata&family=Kedebideri:wght@400;500;600;700;800;900&family=Kumbh+Sans:wght,YOPQ@100..900,300&family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="form-container">
+        <div class="left-panel-registration-form">
+            <div class="icono">
+                <img src="images/iconoPerfilFondoAzul.png" alt="" class="icono-perfil">
+            </div>
+            <div class="mensaje-bienvenida">
+                <h3>Bienvenid@ a Agenda Clínica</h3>
+                <p>Estas completando el formulario de registro
+                    para que puedas prestar tus servicios como
+                    profesionista de la salud.
+                    Así como a ti, a nosotros también nos preocupa
+                    la privacidad de la información y el acceso
+                    a los datos. Aquí puedes consultar los detalles
+                </p>
+            </div>
+            <div class="esquina-form">
+                <img src="images/repisa_doctoresSinFondo.png" alt="" class="fondo-form">
+            </div>
+
+        </div>
+        <div class="right-panel-registration-form">
+            <div class="title">
+                <h2>REGISTRO</h2>
+            </div>
+            <form id="register-form" method="" action="" class="form-wrapper">
+            <div class="registration-body">
+                <div class="top-row">
+                    <input type="text" name="nombre" class="i_nombre" placeholder="" required>
+                    <label for="nombre" class="l_nombre">Nombre </label>
+                </div>
+
+                <div class="second-row">
+                    <div class="first-item-second-row">
+                        <input type="text" name="apellido_pat" id="" placeholder="" required>
+                        <label for="apellido_pat">Apellido Paterno </label>
+                    </div>
+                    <div class="second-item-second-row">
+                        <input type="text" name="apellido_mat" id="" placeholder="">
+                        <label for="apellid_mat">Apellido Materno </label>
+                    </div>
+                </div>
+
+                <div class="third-row">
+                    <div class="first-item-third-row">
+                        <input type="text" name="cel" id="" placeholder="">
+                        <label for="cel">Celular </label>
+                    </div>
+                    <div class="second-item-third-row">
+                        <input type="email" name="correo_e" id="email_input" placeholder="" required>
+                        <label for="corre_e">Correo Electrónico </label>
+                    </div>
+                </div>
+
+
+
+                <div class="final-row">
+                    <div class="first-item-final-row">
+                        <input type="password" name="contraseña" id="" placeholder="" required>
+                        <label for="contreaseña">Contraseña </label>
+
+                    </div>
+                    <div class="second-item-final-row">
+                        <input type="password" name="contraseña_confirmacion" id="" placeholder="" required>
+                        <label for="contraseña_confirmacion">Confirmar Contraseña </label>
+                    </div>
+                </div>
+
+                
+
+            </div>
+            <div class="registration-btn">
+                    <button class="reg-btn">
+                        REGISTRARME
+                    </button>
+            </div>
+            </form>
+        </div>
+    </div>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="app.js?v=1.2"></script>
+  
+    
+</body>
+
+</html>
