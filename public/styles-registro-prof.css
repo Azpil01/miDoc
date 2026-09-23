@@ -248,7 +248,7 @@ body {
 
 .second-item-final-row label {
   white-space: nowrap; /* Evita que el texto baje a la segunda línea */
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 
 .registration-btn {
@@ -362,4 +362,35 @@ body {
   .reg-btn {
     width: 100%; /* Botón de ancho completo en celulares para mayor comodidad táctil */
   }
+}
+
+
+  /* --- Quita el rectángulo del autocomplete --- */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  /* Forzamos a que el fondo siga siendo transparente o del color de tu tarjeta */
+  -webkit-box-shadow: 0 0 0 30px var(--bg-card) inset !important;
+  /* Mantenemos el color del texto original para que no cambie */
+  -webkit-text-fill-color: var(--text-dark) !important;
+  /* Transición suave para evitar parpadeos */
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Desactivar iconos y estilos nativos de autocompletado en Chrome/Edge */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+  -webkit-text-fill-color: var(--text-dark) !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Ocultar el botoncito o icono desplegable de autocompletado del navegador */
+input::-webkit-contacts-auto-fill-button,
+input::-webkit-credentials-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
 }

@@ -174,3 +174,98 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+
+//******* Función para captar el envío del formulario de doctores         ************/
+
+document.addEventListener("DOMContentLoaded", () => {
+  const registerForm = document.getElementById("register-form-doctores");
+
+  if (registerForm) {
+    registerForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const datosUsuarios = {
+        nombre: document.querySelector('input[name="nombre"]').value,
+        apellido_pat: document.querySelector('input[name="apellido_pat"]').value,
+        apellido_mat: document.querySelector('input[name="apellido_mat"]').value,
+        ced_prof: document.querySelector('input[name="ced_prof"]').value,
+        especialidad: document.querySelector('input[name="especialidad"]').value,
+        celular: document.querySelector('input[name="celular"]').value,
+        email: document.querySelector('input[name="email"]').value,
+        ubicacion_principal: document.querySelector('input[name="ubicacion_principal"]').value,
+        contraseña: document.querySelector('input[name="contraseña"]').value
+      };
+      console.log("Datos a enviar: ", datosUsuarios)
+      try {
+        // if (datosUsuarios.contraseña !== datosUsuarios.contraseñaConfirmacion) {
+        //   Swal.fire({
+        //     icon: "error",
+        //     title: "¡Atención!",
+        //     text: "Las contraseñas no coinciden. Favor de verificar",
+        //     confirmButtonColor: "#3085d6",
+        //     customClass: {
+        //       // title: "some-test" Se puede usar esta clase personalizada
+        //     },
+        //   });
+        //   console.log("Las contraseñas no coinciden");
+        //   return;
+        // }
+        const res = await fetch("/api/v1/auth/register-doctor", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(datosUsuarios),
+        });
+
+        if (res.status === 500) {
+          Swal.fire({
+            icon: "warning",
+            title: "Correo ya registrado",
+            text: "Este correo ya esta asociado a otra cuenta. Por favor, intenta con otro correo o inicia sesión",
+            confirmButtonColor: "#3085d6",
+            returnFocus: false,
+            customClass: {
+              // title: "some-test" Se puede usar esta clase personalizada
+            },
+          }).then(() => {
+            const inputCorreo = document.querySelector(
+              'input[name="email"]',
+            );
+            inputCorreo.focus();
+            inputCorreo.select();
+            console.log("Nuevos datos: ", datosUsuarios)
+          });
+
+          return;
+        }
+        if (!res.ok) {
+          throw new Error(
+            "Hubo un problema al registrar el usuario en el servidor",
+          );
+        }
+
+        const result = await res.json();
+        console.log("Respuesta exitosa de la API: ", result);
+
+        registerForm.reset();
+
+        Swal.fire({
+          icon: "success",
+          title: "¡Bienvenido!",
+          text: "Ya eres parte de Agenda Clínica",
+          confirmButtonColor: "#3085d6",
+          customClass: {
+            // title: "some-test" Se puede usar esta clase personalizada
+          },
+        });
+
+        registerForm.reset();
+        // alert("¡Registro exitoso! Bienvenid@")
+      } catch (error) {
+        console.error("Error en el registro: ", error);
+      }
+    });
+  }
+});

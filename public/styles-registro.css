@@ -358,3 +358,16 @@ body {
     width: 100%; /* Botón de ancho completo en celulares para mayor comodidad táctil */
   }
 }
+
+  /* --- Quita el rectángulo del autocomplete --- */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  /* Forzamos a que el fondo siga siendo transparente o del color de tu tarjeta */
+  -webkit-box-shadow: 0 0 0 30px var(--bg-card) inset !important;
+  /* Mantenemos el color del texto original para que no cambie */
+  -webkit-text-fill-color: var(--text-dark) !important;
+  /* Transición suave para evitar parpadeos */
+  transition: background-color 5000s ease-in-out 0s;
+}

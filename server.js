@@ -138,26 +138,25 @@ app.post("/api/v1/auth/register", async (req, res) => {
 app.post("/api/v1/auth/register-doctor", async (req, res) => {
   
   try{
-    const { nombre, apellidoPat, apellidoMat, cedula, celular, correo, especialidad, ubicacionPrincipal, contraseña, contraseñaConfirmacion} = req.body;
-    if (contraseña !== contraseñaConfirmacion) {
-      return res.status(400).json({error: "Las contraseñas no coinciden"});
-    }
+    const { nombre, apellido_pat, apellido_mat, ced_prof, especialidad, celular, email, ubicacion_principal, contraseña} = req.body;
+    
+    console.log(req.body)
 
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(contraseña, saltRounds);
 
     const queryText = "INSERT INTO doctores (nombre, apellido_pat, apellido_mat, ced_prof, celular, email, especialidad, ubicacion_principal, password_hash) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    let queryValues = [nombre, apellidoPat, apellidoMat, cedula,  celular, correo, especialidad, ubicacionPrincipal, hashedPassword];
+    let queryValues = [nombre, apellido_pat, apellido_mat, ced_prof, celular, email, especialidad, ubicacion_principal, hashedPassword];
 
     const [result] = await pool.query(queryText, queryValues)
     console.log("Profesionista registrado con éxito")
     console.log("Number of affected rows: ", result.affectedRows)
-    console.log(`ID: ${result.insertId} assigned to user ${correo}` )
+    console.log(`ID: ${result.insertId} assigned to user ${email}` )
     
 
     return res.status(201).json({
       mensaje: "Profesionista registrado exitosamente",
-      usuario: {correo}
+      usuario: {email}
     })  
 
   } catch(error) {
