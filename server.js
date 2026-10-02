@@ -49,7 +49,7 @@ app.get("/api/doctores", async (req, res) => {
 });
 
 app.get("/api/doctores/buscar", async (req, res) => {
-  const { especialidad = "", ubicacion = "", pagina = 1 } = req.query;
+  const { especialidad = "", ubicacion = "", pagina = 1 } = req.query; //* '=""' Es para asiganrle un valor por defecto en caso que req.query no nos mande un valor para esas variables
   const limite = 10; //*Cantidad de doctores por página
   const offset = (Number(pagina) - 1) * limite; //*La cantidad de registros a saltarse antes de devolver datos, ejempl, si estas en la pagina 1, registros del 0 al 10
   //*si estas en la pagina 2, quieres saltarte los primero 10 porque ya pasaron en la página 1
@@ -162,6 +162,20 @@ app.post("/api/v1/auth/register-doctor", async (req, res) => {
   } catch(error) {
     console.error("Error en el servidor al registrar: ", error);
     return res.status(500).json({error: "Error interno en el servidor"})
+  }
+})
+
+//*********Endpoint para obtener las citas de un doctor específico ***********/
+
+app.get("/api/v1/citas/doctor/:doctor_id", async (req, res) => {
+  const {doctor_id} = req.params; //Deestructuramos para obtener directamente el valor y no '{doctor_id: 1}. De esta manera obtenemos inmediatmaente el 1'
+  try {
+    const queryText = "SELECT id, CONCAT (fecha_cita, 'T', hora_cita) AS start, motivo_consulta AS title, modalidad, estatus FROM citas WHERE doctor_id = ?";
+    const [citas] = await pool.query(queryText, [doctor_id]);
+    res.json(citas)    
+  } catch (error) {
+    console.error("Error al obtener las citas: ", error);
+    res.status(500).json({error: "Error al obtener las citas del servidor"})
   }
 })
 

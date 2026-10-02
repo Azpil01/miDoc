@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-//******* Función para captar el envío del formulario          ************/
+//******* Función para captar el envío del formulario de registro de usuarios          ************/
 
 document.addEventListener("DOMContentLoaded", () => {
   const registerForm = document.getElementById("register-form");
@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-//******* Función para captar el envío del formulario de doctores         ************/
+//******* Función para captar el envío del formulario del registro de doctores         ************/
 
 document.addEventListener("DOMContentLoaded", () => {
   const registerForm = document.getElementById("register-form-doctores");
@@ -268,4 +268,27 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+});
+
+//******* Función para conectar FullCalendar     ************/
+
+document.addEventListener("DOMContentLoaded", function () {
+  var calendarEl = document.getElementById("calendar");
+  
+  // Supongamos que conoces el ID del doctor logueado (por ejemplo, id 1)
+  const doctorId = 108; 
+
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: "timeGridWeek",
+    locale: 'es',
+    headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+    },
+    // FullCalendar hará un fetch automático a esta ruta mandando start y end por query params
+    events: `/api/v1/citas/doctor/${doctorId}`
+  });
+  
+  calendar.render();
 });

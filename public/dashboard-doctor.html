@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel del Especialista | Agenda Clínica</title>
+    
+    <!-- Estilos del Dashboard -->
+    <link rel="stylesheet" href="styles-dashboard.css?=1.0">
+    
+    <!-- FullCalendar CSS -->
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css' rel='stylesheet' />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Barra Lateral de Navegación -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Agenda Clínica</h2>
+                <span class="user-role">Panel Médico</span>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="active">📊 Resumen</a></li>
+                    <li><a href="#">📅 Mi Agenda (Citas)</a></li>
+                    <li><a href="#">⚙️ Configurar Perfil</a></li>
+                    <li><a href="#" id="btn-logout">🚪 Cerrar Sesión</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <!-- Cabecera Superior -->
+            <header class="top-bar">
+                <h1>Panel del Especialista</h1>
+                <div class="doctor-profile-preview">
+                    <img src="images/iconoPerfilFondoAzul.png" alt="Foto de perfil" id="nav-avatar">
+                </div>
+            </header>
+
+            <!-- Sección de Estadísticas -->
+            <section class="dashboard-stats">
+                <div class="stat-card">
+                    <h3>Citas Programadas</h3>
+                    <p class="stat-number">--</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Modalidad Principal</h3>
+                    <p class="stat-number" style="font-size: 1.2rem;">Presencial / Online</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Estatus</h3>
+                    <p class="stat-number" style="font-size: 1.2rem; color: #17b978;">● Activo</p>
+                </div>
+            </section>
+
+            <!-- Área del Calendario -->
+            <section class="dashboard-body">
+                <div class="card-section">
+                    <h2>Mi Agenda de Citas</h2>
+                    <!-- FullCalendar renderizará aquí gracias a app.js -->
+                    <div id="calendar"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- FullCalendar JS -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+    
+    <!-- Tu archivo principal de lógica (app.js) que inicializa el calendario -->
+    <script src="app.js"></script>
+</body>
+
+</html>
