@@ -84,27 +84,56 @@ body {
   opacity: 0.8;
 }
 
-.btn-login {
+.user-login-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* border: solid 2px white; */
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn-login-r, .btn-login-l {
   font-size: 1rem;
-  padding: 0.6rem 1.4rem;
   border-radius: 8px;
   border: none;
-  background-color: white;
-  color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: white;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
-.btn-login:hover {
-  background-color: #f1f5f9;
+
+
+.vertical-line {
+  color: white;
+  padding-left: .5rem;
+  padding-right: .5rem;
 }
+
+.btn-login {
+  font-size: 1rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* .btn-login:hover {
+  background-color: #f1f5f9;
+} */
 
 /**Hero*/
 
 .hero {
   width: 100%;
-  min-height: 55vh;
+  min-height: 42vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
