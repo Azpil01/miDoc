@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", function () {
   var calendarEl = document.getElementById("calendar");
   
-  // Supongamos que conoces el ID del doctor logueado (por ejemplo, id 1)
+  
   const doctorId = 108; 
 
   var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -286,7 +286,7 @@ document.addEventListener("DOMContentLoaded", function () {
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
     },
-    // FullCalendar hará un fetch automático a esta ruta mandando start y end por query params
+  
     events: `/api/v1/citas/doctor/${doctorId}`
   });
   
